@@ -63,7 +63,7 @@ body {
 .form-logo {
     display: block;           /* Image ko block element banata hai taaki center kar sakein */
     margin: 0 auto 20px auto; /* Top: 0, Left/Right: Auto (Center), Bottom: 20px (Gap) */
-    max-width: 130px;         /* Logo ki chaudai (width) control karne ke liye. Ise kam/zyada kar sakte hain */
+    max-width: 150px;         /* Logo ki chaudai (width) control karne ke liye. Ise kam/zyada kar sakte hain */
     height: auto;             /* Height apne aap set hogi width ke hisab se */
 }
 
