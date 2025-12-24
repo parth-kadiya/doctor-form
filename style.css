@@ -1,0 +1,366 @@
+/* Import Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    padding: 0;
+    /* LIGHT MODE BACKGROUND */
+    background-color: #d2ffe9; 
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #24292f; /* Dark Text */
+}
+
+.doctor-app-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.form-card {
+    position: relative;
+    /* WHITE CARD BACKGROUND */
+    background: #ffffff;
+    border-radius: 20px;
+    border: 1px solid #2da44e; /* Light Border */
+    padding: 30px 25px;
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); /* Soft Shadow */
+    width: 100%;
+    max-width: 600px;
+    margin: auto;
+}
+
+.form-title {
+    margin: 0 0 25px;
+    font-size: 32px;
+    font-weight: 600;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.title-highlight {
+    /* Slightly darker gradient for light mode visibility */
+    background: linear-gradient(145deg, #0969da, #2da44e);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.title-text {
+    color: #24292f; /* Dark Text */
+    /* Removed text shadow for cleaner look in light mode */
+}
+
+.form-card label {
+    display: block;
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.input-label {
+    font-size: 14px;
+    font-weight: 500;
+    color: #57606a;
+    margin-bottom: 6px;
+    display: block;
+}
+
+.form-card input[type="text"],
+.styled-select {
+    width: 100%;
+    padding: 12px 15px;
+    /* Light Mode Input Styles */
+    border: 1px solid #d0d7de;
+    border-radius: 8px;
+    font-size: 16px;
+    font-family: 'Poppins', sans-serif;
+    outline: none;
+    box-sizing: border-box;
+    background: #ffffff;
+    color: #1f2328;
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Custom SVG Arrow for Select - Darker color for visibility */
+.styled-select {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%232da44e%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 20px;
+    padding-right: 45px;
+}
+
+.styled-select option {
+    background-color: #ffffff;
+    color: #1f2328;
+}
+
+.form-card input[type="text"]::placeholder {
+    color: #8c959f;
+}
+
+.form-card input[type="text"]:focus,
+.styled-select:focus {
+    border-color: #2ea043;
+    box-shadow: 0 0 0 3px rgba(46, 160, 67, 0.2);
+}
+
+.error-msg {
+    color: #cf222e; /* Red for errors */
+    font-size: 13px;
+    margin-top: 5px;
+    text-align: left;
+    display: none;
+}
+
+.file-wrap {
+    position: relative;
+    display: block;
+    border: 2px dashed #d0d7de; /* Light gray dash */
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 10px;
+    width: 100%;
+    background: #f6f8fa; /* Slight grey background for area */
+}
+
+.file-wrap:hover {
+    border-color: #2ea043;
+    background-color: #f3f9f4;
+}
+
+.file-wrap input[type="file"] {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.upload-icon {
+    width: 48px; height: 48px;
+    margin: 0 auto 10px auto;
+    color: #2ea043;
+}
+
+.upload-icon svg path {
+    stroke-width: 1.2; /* Boldness adjusted */
+}
+
+.file-upload-design p {
+    margin: 0; font-size: 15px; color: #57606a; font-weight: 500;
+}
+
+.file-name-display {
+    text-align: center;
+    font-size: 13px;
+    color: #2ea043;
+    margin-bottom: 15px;
+    height: 20px;
+    font-weight: 500;
+}
+
+.preview-circle-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    display: none;
+}
+
+.square-preview {
+    width: 140px;
+    height: 140px;
+    border-radius: 12px;
+    border: 2px solid #2ea043;
+    object-fit: contain;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    background-color: #fff;
+}
+
+/* BUTTONS */
+.btn-submit {
+    width: 100%;
+    padding: 14px;
+    background-image: linear-gradient(145deg, #2ea043, #238636);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(35, 134, 54, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(35, 134, 54, 0.4);
+}
+
+.btn-submit:disabled {
+    opacity: 0.7; cursor: not-allowed; transform: none;
+}
+
+.loader {
+    width: 20px; height: 20px;
+    border: 3px solid rgba(255,255,255,0.3);
+    border-bottom-color: white;
+    border-radius: 50%;
+    display: inline-block;
+    animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+/* MODAL - Keeps Dark Overlay but Light Content */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0; top: 0;
+    width: 100vw; height: 100vh;
+    background-color: rgba(0, 0, 0, 0.7); /* Dark Overlay */
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+}
+
+.modal-content {
+    background: #ffffff; /* White Content */
+    border: 1px solid #d0d7de;
+    padding: 20px;
+    border-radius: 15px;
+    width: 100%;
+    max-width: 600px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.close-modal {
+    position: absolute;
+    top: -15px; right: -15px;
+    background: #2ea043;
+    color: white;
+    border: none;
+    width: 35px; height: 35px;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    display: flex; align-items: center; justify-content: center;
+    z-index: 10;
+}
+
+.image-crop-container {
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #d0d7de;
+    max-height: 400px;
+    background: #f6f8fa;
+}
+
+.image-crop-container img {
+    max-width: 100%;
+    display: block;
+}
+
+/* RESULT OVERLAY */
+.result-display-overlay {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    z-index: 9998;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.result-card {
+    background: #ffffff; /* White Card */
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+    border: 1px solid #2ea043;
+    max-width: 90%;
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.result-card h3 { 
+    color: #1f2328; /* Dark Text */
+    margin-top: 0; 
+}
+
+.final-result-img {
+    max-width: 100%;
+    max-height: 70vh;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #d0d7de;
+}
+
+.btn-close-result {
+    background: transparent;
+    border: 1px solid #cf222e;
+    color: #cf222e;
+    padding: 8px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+}
+.btn-close-result:hover {
+    background: rgba(207, 34, 46, 0.05);
+}
+
+.btn-download {
+    background-image: linear-gradient(145deg, #f8b500, #e0a800);
+    color: #000;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.btn-reset {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid #d0d7de;
+    color: #57606a;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Poppins', sans-serif;
+    display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.btn-reset:hover { 
+    background: #f3f4f6; 
+    color: #24292f;
+    border-color: #8c959f;
+}
+
+.success-actions { display: none; }
+.d-none { display: none !important; }
+.d-flex { display: flex !important; }

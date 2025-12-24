@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Doctor Profile Generator</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="doctor-app-wrapper">
+        <div class="form-card">
+            
+            <h2 class="form-title">
+                <span class="title-highlight">Doctor</span>
+                <span class="title-text">Login</span>
+            </h2>
+
+            <div class="form-content-wrapper">
+                
+                <label>
+                    <span class="input-label">Name of Employee</span>
+                    <input type="text" id="employeeName" placeholder="Enter Employee Name" />
+                    <div id="err-employeeName" class="error-msg">Employee Name is required</div>
+                </label>
+
+                <label>
+                    <span class="input-label">Employee HQ</span>
+                    <input type="text" id="employeeHQ" placeholder="Enter HQ Location" />
+                    <div id="err-employeeHQ" class="error-msg">HQ is required</div>
+                </label>
+
+                <label>
+                    <span class="input-label">Employees ID</span>
+                    <input type="text" id="employeeID" placeholder="Enter Employee ID" />
+                    <div id="err-employeeID" class="error-msg">Employee ID is required</div>
+                </label>
+
+                <label>
+                    <span class="input-label">Doctor Name</span>
+                    <input type="text" id="doctorName" placeholder="Enter Doctor Name" />
+                    <div id="err-doctorName" class="error-msg">Doctor Name is required</div>
+                </label>
+
+                <label>
+                    <span class="input-label">Speciality</span>
+                    <select id="specialty" class="styled-select">
+                        <option value="">Select Specialty</option>
+                        <option value="General Physician">General Physician</option>
+                        <option value="Cardiologist">Cardiologist</option>
+                        <option value="Dermatologist">Dermatologist</option>
+                        <option value="Dentist">Dentist</option>
+                        <option value="Orthopedic">Orthopedic</option>
+                        <option value="Pediatrician">Pediatrician</option>
+                        <option value="Gynecologist">Gynecologist</option>
+                        <option value="Neurologist">Neurologist</option>
+                        <option value="Surgeon">Surgeon</option>
+                        <option value="Ayurvedic / Homeopathic">Ayurvedic / Homeopathic</option>
+                        <option value="Other">Other</option>
+                    </select>
+                    <div id="err-specialty" class="error-msg">Select a specialty</div>
+                </label>
+
+                <label class="file-wrap">
+                    <div class="file-upload-design">
+                        <div class="upload-icon">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M7 10V9C7 6.23858 9.23858 4 12 4C14.7614 4 17 6.23858 17 9V10C19.2091 10 21 11.7909 21 14C21 15.4806 20.1956 16.8084 19 17.5M7 10C4.79086 10 3 11.7909 3 14C3 15.4806 3.8044 16.8084 5 17.5M7 10C7.43285 10 7.84965 10.0688 8.24254 10.1948M12 12V21M12 12L15 15M12 12L9 15" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                            </svg>
+                        </div>
+                        <p>Click to Upload Doctor Photo</p>
+                    </div>
+                    <input type="file" id="fileInput" accept="image/*" />
+                </label>
+                <div id="fileText" class="file-name-display">No photo chosen</div>
+
+                <div id="previewContainer" class="preview-circle-container">
+                    <img id="previewImage" src="" alt="Preview" class="square-preview" />
+                </div>
+
+                <div class="text-center">
+                    <button type="button" id="generateBtn" class="btn-submit">
+                        Generate Profile
+                    </button>
+                    
+                    <div id="successActions" class="success-actions" style="flex-direction: column; gap: 10px;">
+                        <button id="downloadBtn" class="btn-submit btn-download">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+                                <polyline points="7 10 12 15 17 10"></polyline>
+                                <line x1="12" y1="15" x2="12" y2="3"></line>
+                            </svg>
+                            Download Image
+                        </button>
+                        <button id="resetBtn" class="btn-reset">
+                            <svg class="btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <path d="M23 4v6h-6"></path>
+                                <path d="M1 20v-6h6"></path>
+                                <path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"></path>
+                            </svg>
+                            Create New
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="cropModal" class="modal">
+            <div class="modal-content">
+                <button id="closeModalBtn" class="close-modal">&times;</button>
+                <div class="image-crop-container">
+                    <img id="imageToCrop" src="" alt="Crop Source">
+                </div>
+                <button id="saveCropBtn" class="btn-submit">Save & Crop</button>
+            </div>
+        </div>
+
+        <div id="resultOverlay" class="result-display-overlay">
+            <div class="result-card">
+                <h3>Your AI Profile Ready!</h3>
+                <img id="finalGeneratedImage" src="" alt="Final Result" class="final-result-img"/>
+                <button id="closeResultBtn" class="btn-close-result">Close Preview</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.13/cropper.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
