@@ -7,7 +7,7 @@ body {
     margin: 0;
     padding: 0;
     /* LIGHT MODE BACKGROUND */
-    background-color: #d2ffe9; 
+    background-color: #d2eff0; 
     font-family: 'Poppins', sans-serif;
     min-height: 100vh;
     display: flex;
@@ -29,7 +29,7 @@ body {
     /* WHITE CARD BACKGROUND */
     background: #ffffff;
     border-radius: 20px;
-    border: 1px solid #2da44e; /* Light Border */
+    border: 1px solid #009ea3; /* Light Border */
     padding: 30px 25px;
     box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08); /* Soft Shadow */
     width: 100%;
@@ -49,7 +49,7 @@ body {
 
 .title-highlight {
     /* Slightly darker gradient for light mode visibility */
-    background: linear-gradient(145deg, #0969da, #2da44e);
+    background: linear-gradient(145deg, #009ea3, #b3569f);
     -webkit-background-clip: text;
     background-clip: text;
     color: transparent;
@@ -120,7 +120,7 @@ body {
 
 .form-card input[type="text"]:focus,
 .styled-select:focus {
-    border-color: #2ea043;
+    border-color: #009ea3;
     box-shadow: 0 0 0 3px rgba(46, 160, 67, 0.2);
 }
 
@@ -147,7 +147,7 @@ body {
 }
 
 .file-wrap:hover {
-    border-color: #2ea043;
+    border-color: #009ea3;
     background-color: #f3f9f4;
 }
 
@@ -162,7 +162,7 @@ body {
 .upload-icon {
     width: 48px; height: 48px;
     margin: 0 auto 10px auto;
-    color: #2ea043;
+    color: #009ea3;
 }
 
 .upload-icon svg path {
@@ -176,7 +176,7 @@ body {
 .file-name-display {
     text-align: center;
     font-size: 13px;
-    color: #2ea043;
+    color: #009ea3;
     margin-bottom: 15px;
     height: 20px;
     font-weight: 500;
@@ -193,7 +193,7 @@ body {
     width: 140px;
     height: 140px;
     border-radius: 12px;
-    border: 2px solid #2ea043;
+    border: 2px solid #009ea3;
     object-fit: contain;
     box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     background-color: #fff;
@@ -203,7 +203,7 @@ body {
 .btn-submit {
     width: 100%;
     padding: 14px;
-    background-image: linear-gradient(145deg, #2ea043, #238636);
+    background-image: linear-gradient(145deg, #009ea3, #b3569f);
     border: none;
     border-radius: 8px;
     color: white;
@@ -269,7 +269,7 @@ body {
 .close-modal {
     position: absolute;
     top: -15px; right: -15px;
-    background: #2ea043;
+    background: #009ea3;
     color: white;
     border: none;
     width: 35px; height: 35px;
@@ -312,7 +312,7 @@ body {
     padding: 20px;
     border-radius: 15px;
     text-align: center;
-    border: 1px solid #2ea043;
+    border: 1px solid #009ea3;
     max-width: 90%;
     box-shadow: 0 0 30px rgba(0,0,0,0.5);
 }
